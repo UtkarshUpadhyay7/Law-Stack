@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Law Lens</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>⚖️ Law Lens</h2>
+    <button class="new-chat">＋ New Chat</button>
+    <p class="tagline">AI for Legal Understanding</p>
+  </aside>
+
+  <!-- Main Chat -->
+  <main class="chat-area">
+    <div class="chat-box" id="chatBox">
+      <div class="ai-msg">
+        👋 Hi! Upload a legal document or ask about any law.
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area">
+      <input type="file" id="fileInput" />
+      <input type="text" id="userInput" placeholder="Ask about any law..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
