@@ -1,224 +1,179 @@
-\# ⚖️ Law-Stack – AI-Powered Legal Assistant
+📚 LawStack — AI-Powered Legal Search Engine (RAG-Based)
 
 
 
-Law-Stack is an AI-powered legal information system designed to simplify Indian laws for common citizens and students.  
+LawStack is an AI-powered legal assistant designed to simplify Indian laws for common citizens using a Retrieval-Augmented Generation (RAG) architecture.
 
-It combines \*\*structured legal data\*\* with \*\*AI-based explanations\*\* to provide accurate, easy-to-understand legal summaries.
+Instead of relying purely on AI, LawLens retrieves official legal texts and then explains them in simple, understandable language.
 
 
 
-This project is developed as a \*\*Final Year Engineering Project\*\* with strong \*\*industry relevance\*\* and future scalability.
+⚠️ Disclaimer: LawLens is for educational purposes only and does not provide legal advice.
 
 
 
----
+🚀 Key Features
+🔍 Search any IPC section (e.g., 302, 420, 314)
+📄 Uses official Indian Penal Code (IPC) Bare Act
+🧠 RAG-based architecture (no AI hallucination)
+🤖 AI-powered explanation with safe fallback
+🛡️ Honest responses when AI services are unavailable
+⚙️ Scalable design (CrPC, IT Act can be added later)
+🧠 Why RAG Instead of Plain AI?
 
 
 
-\## 🚀 Key Features
+Traditional AI models may hallucinate legal information, which is dangerous in legal contexts.
+LawLens solves this by:
+Retrieving the exact IPC section from official documents
+Grounding the AI on retrieved text only
+Explaining the law in simple terms
 
+This ensures:
+Accuracy
+Transparency
+Reliability
 
 
-\- 🔍 Search \*\*any IPC section\*\* (e.g., IPC 420, IPC 302)
 
-\- 📘 Accurate explanations using verified IPC data
+🏗️ Architecture Overview
 
-\- 🤖 AI-based summaries for non-IPC laws (Cyber Law, IT Act, Consumer Law, etc.)
+User Query
 
-\- 🧠 Structured, citizen-friendly legal instructions
+&nbsp;  ↓
 
-\- ⚠️ Graceful fallback when AI services are unavailable
+IPC Section Detection
 
-\- 🎨 Modern GPT-style user interface
+&nbsp;  ↓
 
-\- 🔐 Secure API handling using environment variables
+RAG Retrieval (TF-IDF)
 
+&nbsp;  ↓
 
+Official IPC Text
 
----
+&nbsp;  ↓
 
+AI Explanation (Optional)
 
+&nbsp;  ↓
 
-\## 🧠 How It Works (System Flow)
+Safe Fallback if AI unavailable
 
 
 
-1\. User enters a legal query
+📁 Project Structure
 
-2\. System detects the type of law (IPC / Other)
+law-lens/
 
-3\. IPC sections are retrieved from a structured legal database
+├── backend/
 
-4\. Other laws are handled using AI-based summarization
+│   ├── src/
 
-5\. Results are displayed in a clear, structured format with disclaimers
+│   │   ├── controllers/
 
+│   │   ├── routes/
 
+│   │   ├── services/
 
----
+│   │   │   ├── ipcRetriever.js
 
+│   │   │   └── lawAIService.js
 
+│   │   ├── rag/
 
-\## 🏗️ Architecture Overview
+│   │   │   ├── extractIpcText.js
 
+│   │   │   ├── chunkIpcSections.js
 
+│   │   │   └── testRetriever.js
 
+│   │   └── server.js
 
+│   ├── rag-data/        (ignored)
 
----
+│   ├── rag-index/       (ignored)
 
+│   └── package.json
 
+├── frontend/
 
-\## 🛠️ Tech Stack
+└── README.md
 
 
 
-\### Frontend
+⚙️ Technologies Used
+Node.js
+Express.js
+TF-IDF (natural library)
+OpenAI API (with fallback)
+PDF Parsing (pdf-parse)
+JavaScript
 
-\- HTML
 
-\- CSS
 
-\- JavaScript
+🧪 Example Queries
 
+What is IPC section 302?
 
+Explain IPC 420
 
-\### Backend
+What punishment is given under IPC 314?
 
-\- Node.js
 
-\- Express.js
 
-\- CORS
+Sample Output (Fallback Mode)
 
-\- dotenv
+302\. Punishment for murder.—Whoever commits murder shall be punished
 
+with death or life imprisonment and fine.
 
 
-\### AI Integration
 
-\- OpenAI API (for legal summarization)
+Simple explanation:
+This section explains the punishment for murder.
+⚠️ This is not legal advice.
 
+🛡️ AI Fallback Mechanism
+If AI services are unavailable (quota/network issues):
 
 
-\### Tools
+LawLens still retrieves and displays official law text
+Prevents system failure
+Ensures uninterrupted access to legal information
+This makes LawLens robust and reliable.
 
-\- Git \& GitHub
 
-\- PowerShell
 
-\- VS Code
+🎓 Final-Year Project Highlights
+✔ Industry-grade RAG implementation
+✔ Prevents AI hallucination
+✔ Legal safety \& transparency
+✔ Clean GitHub practices
+✔ Easily extensible architecture
 
+🔮 Future Scope
 
+📘 Add Criminal Procedure Code (CrPC)
+💻 Add IT Act \& Consumer Protection Act
+☁️ Deploy on cloud
+🔍 Add law comparison \& citations
+🌐 Public web deployment
 
----
 
 
+🧑‍🎓 Author
+Utkarsh Upadhyay
+Final Year Engineering Student
+Project: LawLens
 
-\## 🔐 Security Practices
 
 
+⚠️ Disclaimer
+This project is intended for educational and academic purposes only.
+It does not replace professional legal advice.
 
-\- API keys are stored securely using `.env` files
 
-\- `.env` and `node\_modules` are excluded via `.gitignore`
 
-\- No sensitive data is committed to GitHub
-
-
-
----
-
-
-
-\## 🎓 Academic Relevance
-
-
-
-This project demonstrates:
-
-\- Backend API development
-
-\- AI integration with error handling
-
-\- Scalable system design
-
-\- Ethical AI usage with disclaimers
-
-\- Real-world legal-tech architecture
-
-
-
----
-
-
-
-\## 🌍 Industry Relevance
-
-
-
-LawLens follows modern \*\*legal-tech principles\*\*, including:
-
-\- Hybrid rule-based + AI architecture
-
-\- Graceful degradation when AI services fail
-
-\- Future-ready design using Retrieval-Augmented Generation (RAG)
-
-
-
----
-
-
-
-\## 🚀 Future Scope
-
-
-
-\- 📄 Retrieval-Augmented Generation (RAG) using official legal documents
-
-\- 🧾 PDF \& image upload with OCR
-
-\- 📊 Law severity indicators
-
-\- 🌐 Cloud deployment
-
-\- 🔐 User authentication \& role-based access
-
-
-
----
-
-
-
-\## ⚠️ Disclaimer
-
-
-
-This application is for \*\*educational and informational purposes only\*\*.  
-
-It does \*\*not provide legal advice\*\*.  
-
-For legal matters, consult a qualified legal professional.
-
-
-
----
-
-
-
-\## 👨‍💻 Developed By
-
-
-
-\*\*Utkarsh Upadhyay\*\*  
-
-Final Year Engineering Student  
-
-GitHub: https://github.com/UtkarshUpadhyay7
-
-
-
-
-
+⭐ If You Like This Project
+Give it a ⭐ on GitHub — it motivates future development!
