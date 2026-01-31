@@ -1,3 +1,6 @@
 node_modules/
 .env
 .DS_Store
+# RAG raw data & generated indexes
+backend/rag-data/
+backend/rag-index/
